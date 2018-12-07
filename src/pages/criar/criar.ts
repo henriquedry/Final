@@ -22,4 +22,12 @@ export class CriarPage {
     console.log('ionViewDidLoad CriarPage');
   }
 
+  goEmpresarial(){
+    this.navCtrl.push('CempresarialPage');
+  }
+
+  goLiterario(){
+    this.navCtrl.push('CliterarioPage');
+  }
+
 }
