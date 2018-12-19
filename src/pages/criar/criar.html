@@ -5,45 +5,43 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-navbar color="dark">
-        <button ion-button menuToggle color="white">
-          <ion-icon name="menu"></ion-icon>
-        </button>
+  <ion-navbar color="dark">
+    <button ion-button menuToggle color="white">
+      <ion-icon name="menu"></ion-icon>
+    </button>
 
-      <ion-title>Criar</ion-title>
-    </ion-navbar>
-  
-  </ion-header>
-  
-  
-  <ion-content padding  class="corpo">
-  
-    <ion-icon class="cor" name="add-circle" color:danger></ion-icon>
-  
+    <ion-title>Criar</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="corpo">
+
+  <ion-icon class="cor" name="add-circle" color:danger></ion-icon>
+
   <h1 style="text-align: center; color: #fff;">Criar Projeto</h1>
   <hr/>
   <hr/>
   <hr/>
-    <ion-list>
-     <p style=" color: #fff;">Nome do projeto</p>
-      <ion-item>
-     
-        <ion-label>Nome do projeto</ion-label>
-        <ion-input type="text" value=""></ion-input>
-      </ion-item>
-  
-      <p style=" color: #fff;">Tipo de projeto</p>
-      <ion-item>
-     
-        <ion-label>Literario ou empresarial</ion-label>
-        <ion-input type="text" value=""></ion-input>
-      </ion-item>
-      <hr/>
-      <hr/>
- 
-  
+  <ion-list>
+    <p style="color: #fff;">Nome do projeto</p>
+    <p style="color: red;">{{mensagem}}</p>
+    <ion-item>
 
-      <button ion-button block color="outro">Gerar</button>
-    </ion-list>
-  </ion-content>
-  
+      <ion-label>Nome do projeto</ion-label>
+      <ion-input required type="text" value=""  [(ngModel)]="nome"></ion-input>
+    </ion-item>
+
+    <p style=" color: #fff;">Tipo de projeto</p>
+    <ion-item>
+
+      <ion-label>Literario ou Empresarial</ion-label>
+      <ion-input type="text" value="" [(ngModel)]="data"></ion-input>
+    </ion-item>
+    <hr/>
+    <hr/>
+
+    <button ion-button block color="outro" (click)="bifurcacao()">Gerar</button>
+  </ion-list>
+</ion-content>

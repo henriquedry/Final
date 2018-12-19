@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { CliterarioPage } from '../cliterario/cliterario';
 /**
  * Generated class for the CriarPage page.
  *
@@ -14,6 +15,10 @@ import { AlertController } from 'ionic-angular';
   templateUrl: 'criar.html',
 })
 export class CriarPage {
+  mensagem: string = "";
+  mostrarMensagem: boolean = false;
+  data: string = "";
+  nome: string = "";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
   }
@@ -22,20 +27,26 @@ export class CriarPage {
     console.log('ionViewDidLoad CriarPage');
   }
 
-  goEmpresarial(){
+  goEmpresarial() {
     this.navCtrl.push('CempresarialPage');
   }
 
-  goLiterario(){
+  goLiterario() {
     this.navCtrl.push('CliterarioPage');
   }
 
-bifurcacao(){
+  bifurcacao() {
 
- 
+    if (this.data != "" && this.nome != "") {
 
+      if (this.data.toUpperCase() == "LITERARIO")
+        this.goLiterario()
+      if (this.data.toUpperCase() == "EMPRESARIAL")
+        this.goEmpresarial()
     }
-
-}
-
-}
+    else{
+     this.mensagem = "Preencha todos os campos"
+    }
+   }
+   
+  }

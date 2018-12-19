@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import firebase from 'firebase';
+import { query } from '@angular/core/src/animation/dsl';
 /**
- * Generated class for the ProjetosPage page.
+ * Generated class for the TestePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,27 +11,32 @@ import firebase from 'firebase';
 
 @IonicPage()
 @Component({
-  selector: 'page-projetos',
-  templateUrl: 'projetos.html',
+  selector: 'page-teste',
+  templateUrl: 'teste.html',
 })
-export class ProjetosPage {
-
-  categoriaEmpresarial: any[] = new Array(); //categoria no firebase
+export class TestePage {
+  categoriaLiterario: any[] = new Array();
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    this.getList();
-    console.log('ionViewDidLoad ProjetosPage');
+    console.log('ionViewDidLoad TestePage');
   }
 
-  getList() {
+
+  goCriar() {
+    this.navCtrl.push('CriarPage');
+  }
+
+
+  getlist() {
     var postRef = firebase.firestore()
-      .collection("categoriaEmpresarial");
+      .collection("categoriaLiterario");
 
     postRef.get().then(query => {
       query.forEach(doc => {
-        this.categoriaEmpresarial.push(doc.data());
+        console.log(this.categoriaLiterario)
+        this.categoriaLiterario.push(doc.data());
       });
     });
   }

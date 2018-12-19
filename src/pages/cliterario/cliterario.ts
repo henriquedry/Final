@@ -15,11 +15,44 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CliterarioPage {
 
+  personagem: String;
+
+  public segmentos: any = [
+    {
+      nome: 'personagem',
+      status: false
+    },
+    {
+      nome: 'resumos',
+      status: false
+    },
+    {
+      nome: 'locais',
+      status: false
+    },
+    {
+      nome: 'classes',
+      status: false
+    },
+    {
+      nome: 'itens',
+      status: false
+    },
+
+  ]
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
+
+  mudarSegmentos(seg) {
+    this.segmentos.filter(el => {
+      if (el.nome == seg) { el.status = !el.status }
+    })
+  }
+
+  
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CliterarioPage');
   }
-
 }
